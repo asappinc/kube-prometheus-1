@@ -38,6 +38,10 @@ manifests: examples/kustomize.jsonnet vendor build.sh
 	rm -rf manifests
 	./build.sh $<
 
+kustomize-mixins: examples/kustomize-mixins.jsonnet vendor build.sh
+	rm -rf kustomize
+	./kustomize-mixins.sh $<
+
 vendor: jsonnetfile.json jsonnetfile.lock.json
 	rm -rf vendor
 	$(JB_BINARY) install

@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+bases:
+- ./namespace
+- ./prometheus-operator
+- ./prometheus-operator-serviceMonitor
+- ./node-exporter
+- ./kube-state-metrics
+- ./alertmanager
+- ./prometheus
+- ./prometheus-adapter
+- ./grafana
+kind: Kustomization
