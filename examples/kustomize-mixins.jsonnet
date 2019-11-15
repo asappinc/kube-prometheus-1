@@ -29,7 +29,7 @@ local prometheus_operator =
 local rometheus_operator_service_monitor = 
   { ['prometheus-operator-serviceMonitor/serviceMonitor']: kp.prometheusOperator.serviceMonitor };
 
-local node_exporter = 
+local node_exporter =
   { ['node-exporter/' + name]: kp.nodeExporter[name] for name in std.objectFields(kp.nodeExporter) };
 
 local kube_state_metrics =
@@ -39,7 +39,9 @@ local alertmanager =
   { ['alertmanager/' + name]: kp.alertmanager[name] for name in std.objectFields(kp.alertmanager) };
 
 local prometheus =
-  { ['prometheus/' + name]: kp.prometheus[name] for name in std.objectFields(kp.prometheus) };
+  { ['prometheus/' + name]: kp.prometheus[name] for name in std.objectFields(kp.prometheus)} +
+  {'prometheus/roleBindingSpecificNamespaces':: super.prometheus} +
+  {'prometheus/roleSpecificNamespaces':: super.prometheus};
 
 local prometheus_adapter =
   { ['prometheus-adapter/' + name]: kp.prometheusAdapter[name] for name in std.objectFields(kp.prometheusAdapter) };

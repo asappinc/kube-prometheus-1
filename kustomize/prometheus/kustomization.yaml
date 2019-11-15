@@ -5,9 +5,7 @@ resources:
 - ./clusterRoleBinding.yaml
 - ./prometheus.yaml
 - ./roleBindingConfig.yaml
-- ./roleBindingSpecificNamespaces.yaml
 - ./roleConfig.yaml
-- ./roleSpecificNamespaces.yaml
 - ./rules.yaml
 - ./service.yaml
 - ./serviceAccount.yaml
